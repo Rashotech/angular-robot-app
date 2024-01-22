@@ -1,0 +1,18 @@
+<div class="tc">
+  <h1>RobotFriends</h1>
+  <div className="pa2">
+    <input
+      type="search"
+      class="pa3 ba b--green bg-lightest-blue"
+      placeholder="search robots"
+    />
+  </div>
+  <div class="scroll">
+      <robot-card [robot]="robots[0]" [isEven]="false" (robotSelected)="onRobotClicked(robots[0])"/>
+      <robot-card [robot]="robots[1]" [isEven]="true" (robotSelected)="onRobotClicked(robots[1])"/>
+      <robot-card [robot]="robots[2]" [isEven]="false" (robotSelected)="onRobotClicked(robots[2])"/>
+
+    </div>
+</div>
+
+<router-outlet></router-outlet>
