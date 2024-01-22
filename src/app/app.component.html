@@ -7,12 +7,28 @@
       placeholder="search robots"
     />
   </div>
-  <div class="scroll">
-      @for (robot of robots; track $index) {
-        <!-- Custom event -->
-          <robot-card [robot]="robot" [isEven]="$even"/>
-      }
+  <div class="scroll" *ngIf="robots.length; else emptyTemplate">
+    <robot-card
+      *ngFor="
+        let robot of robots;
+        even as isEven;
+        odd as isOdd;
+        first as isFirst;
+        trackBy: robotTrackBy;
+        else emptyTemplate
+      "
+      [robot]="robot"
+      [isEven]="isEven"
+      [isOdd]="isOdd"
+      [isFirst]="isFirst"
+    />
+  </div>
+
+  <ng-template #emptyTemplate class="scroll">
+    <div class="scroll">
+      <p>No robots available!</p>
     </div>
+  </ng-template>
 </div>
 
 <router-outlet></router-outlet>

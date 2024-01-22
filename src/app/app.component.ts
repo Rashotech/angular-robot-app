@@ -20,8 +20,12 @@ export class AppComponent {
 
   searchTerm: string = '';
 
+  robotTrackBy(index: number, robot: IRobot): number {
+    return robot.id;
+  }
+
   constructor() {
-    this.robots = ROBOTS;
+    this.robots = [];
   }
 
   onRobotClicked(robot: IRobot): void {

@@ -16,10 +16,14 @@ export class CardComponent {
   })
   robot: IRobot;
 
-  @Input({
-    required: true,
-  })
+  @Input()
+  isOdd: boolean = false;
+
+  @Input()
   isEven: boolean = false;
+
+  @Input()
+  isFirst: boolean = false;
 
   constructor() {
     this.robot = {
@@ -31,12 +35,15 @@ export class CardComponent {
     
   }
 
-
   onRobotClicked() {
     console.log('onRobotClicked', this.robot?.id);
   }
 
   applyEvenStyle() {
     return "is-even"
+  }
+
+  applyOddStyle() {
+    return "is-odd"
   }
 }
