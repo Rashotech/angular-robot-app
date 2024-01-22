@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IRobot } from '../model/robot';
 import "tachyons";
 
@@ -13,12 +13,8 @@ import "tachyons";
 export class CardComponent {
   @Input({
     required: true,
-    alias: "robot"
   })
   robot: IRobot;
-
-  @Output()
-  robotSelected = new EventEmitter<IRobot>();
 
   @Input({
     required: true,
@@ -35,9 +31,9 @@ export class CardComponent {
     
   }
 
+
   onRobotClicked() {
     console.log('onRobotClicked', this.robot?.id);
-    this.robotSelected.emit(this.robot);
   }
 
   applyEvenStyle() {
